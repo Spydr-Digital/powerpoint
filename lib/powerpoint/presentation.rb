@@ -219,6 +219,19 @@ module Powerpoint
       )
     end
 
+    def add_ff_quotation_slide(title, subtitle, content, icon_image_path, attribution_image_path, attribution, links = [])
+      @slides << Powerpoint::Slide::FFQuotationSlide.new(
+        presentation: self,
+        title: title,
+        subtitle: subtitle,
+        content: content,
+        icon_image_path: icon_image_path,
+        attribution_image_path: attribution_image_path,
+        attribution: attribution,
+        links: links
+      )
+    end
+
     def init_files
       @dir = Dir.mktmpdir
       @extract_path = "#{@dir}/extract_#{Time.now.strftime("%Y-%m-%d-%H%M%S")}"
